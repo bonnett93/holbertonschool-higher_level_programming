@@ -6,7 +6,7 @@ print("Last digit of {:d} is ".format(number), end="")
 result = number % 10
 if (number < 0):
     number *= -1
-	result = (number % 10) * -1
+    result = (number % 10) * -1
 
 if result < 6 and result != 0:
     print("{:d} and is less than 6 and not 0".format(result))
