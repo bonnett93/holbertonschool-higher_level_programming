@@ -8,7 +8,7 @@ if (number < 0):
     result = number % -10
 
 if result < 6 and result != 0:
-    print("{:d} and is less than 6 and not 0".format(result))
+    print("{:d} and is less than 6 and not 0lkasdhjadfh".format(result))
 elif result == 0:
     print("{:d} and is 0".format(result))
 else:
