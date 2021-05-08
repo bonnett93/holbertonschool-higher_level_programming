@@ -23,7 +23,7 @@ int is_palindrome(listint_t **head)
 	tmp = *head;
 	for (i = 0; i < len; i++)
 	{
-		final = *head;
+		final = tmp;
 		for (j = 0; j < len; j++)
 			final = final->next;
 		if (tmp->n != final->n)
