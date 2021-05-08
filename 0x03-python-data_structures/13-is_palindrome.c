@@ -21,7 +21,7 @@ int is_palindrome(listint_t **head)
 		len++;
 	}
 	tmp = *head;
-	for (i = 0; i < len; i++)
+	for (i = 0; tmp != final; i++)
 	{
 		final = tmp;
 		for (j = 0; j < len; j++)
