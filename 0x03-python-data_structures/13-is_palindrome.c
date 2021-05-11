@@ -7,25 +7,27 @@
  */
 int is_palindrome(listint_t **head)
 {
-	int i, j, len = INT_MAX;
+	int i;
 	listint_t *tmp, *final;
 
 	if (head == NULL)
 		return (0);
 	if (*head == NULL)
 		return (1);
+	final = *head;
 	tmp = *head;
-	final = tmp->next;
+	while (final->next != NULL)
+		final = final->next;
+
 	for (i = 0; tmp < final; i++)
 	{
-		final = tmp;
-		for (j = 0; (final->next != NULL) && (j < len); j++)
-			final = final->next;
-		len = j;
+		printf("%d %d\n",tmp->n,final->n);
 		if (tmp->n != final->n)
+		{
 			return (0);
+		}
+		final-=2;
 		tmp = tmp->next;
-		len -= 2;
 	}
 	return (1);
 }
