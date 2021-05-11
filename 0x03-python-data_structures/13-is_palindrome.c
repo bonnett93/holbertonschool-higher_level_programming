@@ -21,12 +21,11 @@ int is_palindrome(listint_t **head)
 
 	for (i = 0; tmp < final; i++)
 	{
-		printf("%d %d\n",tmp->n,final->n);
 		if (tmp->n != final->n)
 		{
 			return (0);
 		}
-		final-=2;
+		final -= 2;
 		tmp = tmp->next;
 	}
 	return (1);
