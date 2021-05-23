@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-"""Create a Class with private instance attribute: size"""
+"""Write a class Square that defines a square with size."""
 
 
 class Square:
-    """This Class Write a class Square that defines a square with size"""
+    """Create a class Square with:
+        Private instance attribute: size"""
+
     def __init__(self, size):
-        """Init is the Class constructor"""
+        """Init is the instantiated  Class constructor"""
         self.__size = size

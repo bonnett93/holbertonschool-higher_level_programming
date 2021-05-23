@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""Module of task 0-square.py"""
+"""Write an empty class Square that defines a square."""
 
 
 class Square:
-    """This Class Write an empty class Square that defines a square."""
+    """An empty class Square with name Square."""
     pass
