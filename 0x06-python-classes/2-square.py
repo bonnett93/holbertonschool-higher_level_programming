@@ -6,7 +6,7 @@ class Square:
     """Create a class Square with:
         Private instance attribute: size"""
 
-    def __init__(self, size = 0):
+    def __init__(self, size=0):
         """Init is the instantiated Class constructor"""
         try:
             if type(size) != int:
