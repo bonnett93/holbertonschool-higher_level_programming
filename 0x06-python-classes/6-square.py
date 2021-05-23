@@ -33,7 +33,7 @@ class Square:
             print("size must be >= 0", end="")
             raise
 
-    def __handle_position(self, position=()):
+    def __handle_position(self, position):
         """Check if value of postition is ok"""
         a = position[0]
         b = position[1]
@@ -48,9 +48,16 @@ class Square:
     def __init__(self, size=0, position=(0, 0)):
         """Init is the instantiated Class constructor"""
         self.__handle_error(size)
-        self.__handle_position(position)
-        self.__size = size
-        self.__position = position
+        try:
+            if type(position) != tuple:
+                raise TypeError
+        except TypeError:
+            print("position must be a tuple of 2 positive integers")
+            raise
+        else:
+            self.__handle_position(position)
+            self.__size = size
+            self.__position = position
 
     def area(self):
         """Returns the current square area"""
