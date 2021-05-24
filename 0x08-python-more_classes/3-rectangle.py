@@ -26,9 +26,7 @@ class Rectangle:
         result = ""
         for i in range(self.height):
             result += ('#' * self.width) + '\n'
-            if (i == self.height - 1):
-                return result[:-1]
-        return result
+        return result[:-1]
 
     @property
     def width(self):
