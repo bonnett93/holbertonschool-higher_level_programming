@@ -15,28 +15,34 @@ class Rectangle:
     """
 
     def __init__(self, width=0, height=0):
-        self.height = height
-        self.width = width
+        """Instantiation Class constructor"""
+        self.__width = width
+        self.__height = height
 
     @property
     def width(self):
+        """return width value"""
         return self.__width
 
     @width.setter
     def width(self, value):
+        """Change width value"""
         self.__handle_error(value, 1)
         self.__width = value
 
     @property
     def height(self):
+        """return height value"""
         return self.__height
 
     @height.setter
     def height(self, value):
+        """change height value"""
         self.__handle_error(1, value)
         self.__height = value
 
     def __handle_error(self, width, height):
+        """Handle Errors"""
         try:
             if type(width) != int or type(height) != int:
                 raise TypeError
