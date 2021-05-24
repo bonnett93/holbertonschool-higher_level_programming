@@ -16,8 +16,8 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """Instantiation Class constructor"""
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
@@ -43,16 +43,9 @@ class Rectangle:
 
     def __handle_error(self, width, height):
         """Handle Errors"""
-        try:
-            if type(width) != int or type(height) != int:
-                raise TypeError
-            elif width < 0 or height < 0:
-                raise ValueError
-        except TypeError:
+        if type(width) != int or type(height) != int:
             x = "width" if type(width) != int else "height"
-            print("{} must be an integer".format(x), end="")
-            raise
-        except ValueError:
+            raise TypeError("{} must be an integer".format(x))
+        elif width < 0 or height < 0:
             x = "width" if width < 0 else "height"
-            print("{} must be >= 0".format(x), end="")
-            raise
+            raise ValueError("{} must be >= 0".format(x))
