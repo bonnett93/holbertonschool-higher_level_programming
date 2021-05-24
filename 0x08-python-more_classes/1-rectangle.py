@@ -44,10 +44,10 @@ class Rectangle:
             elif width < 0 or height < 0:
                 raise ValueError
         except TypeError:
-            x = width if type(width) != int else height
+            x = "width" if type(width) != int else "height"
             print("{} must be an integer".format(x), end="")
             raise
         except ValueError:
-            x = width if width < 0 else height
+            x = "width" if width < 0 else "height"
             print("{} must be >= 0".format(x), end="")
             raise
