@@ -92,6 +92,11 @@ This is a Doctest for the BaseGeometry Class in 7-base_geometry.py module.
     >>> bg.integer_validator("name", 2)
 
 	--------------------------------------------------
+    - Method integer_validator(): Two correct parameters
+
+    >>> bg.integer_validator("name", (100))
+
+	--------------------------------------------------
     - Method integer_validator(): Two parameters, value attribute TypeError
         string:
 
@@ -107,6 +112,46 @@ This is a Doctest for the BaseGeometry Class in 7-base_geometry.py module.
 
     >>> try:
     ...     bg.integer_validator("name", True)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] name must be an integer
+
+	--------------------------------------------------
+    - Method integer_validator(): Two parameters, value attribute TypeError
+        tuple:
+
+    >>> try:
+    ...     bg.integer_validator("name", (2, 4))
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] name must be an integer
+
+	--------------------------------------------------
+    - Method integer_validator(): Two parameters, value attribute TypeError
+        list:
+
+    >>> try:
+    ...     bg.integer_validator("name", [1])
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] name must be an integer
+
+	--------------------------------------------------
+    - Method integer_validator(): Two parameters, value attribute TypeError
+        diccionary:
+
+    >>> try:
+    ...     bg.integer_validator("name", {1, 2})
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] name must be an integer
+
+	--------------------------------------------------
+    - Method integer_validator(): Two parameters, value attribute TypeError
+        None:
+
+    >>> try:
+    ...     bg.integer_validator("name", None)
     ... except Exception as e:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [TypeError] name must be an integer
