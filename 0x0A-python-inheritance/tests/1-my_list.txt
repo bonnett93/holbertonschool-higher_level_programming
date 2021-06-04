@@ -61,12 +61,14 @@ This is a Doctest for the Mylist Class in 1-my_list.y module.
 	[1, 4, 2, 3, 5]
 
 	--------------------------------------------------
-	- Method print_sorted() not empty list, and return:
+	- Method print_sorted() not empty list, and return new list:
 
 	>>> x = my_list.print_sorted()
 	[1, 2, 3, 4, 5]
     >>> print(x)
     None
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
 
 	--------------------------------------------------
 	- Method print_sorted() with negative values:
