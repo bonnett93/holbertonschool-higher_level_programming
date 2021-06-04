@@ -2,18 +2,7 @@
 '''File: 8 Rectangle'''
 
 
-class BaseGeometry:
-    '''Base class BaseGeometry.'''
-    def area(self):
-        '''Area not implemented'''
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        '''Validates value Type and Value'''
-        if type(value) != int:
-            raise TypeError("{:s} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{:s} must be greater than 0".format(name))
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
