@@ -106,3 +106,22 @@ This is a Doctest for the add_integer function in 0-add_integer.py module.
     ... except Exception as e:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [TypeError] b must be an integer
+
+	--------------------------------------------------
+	- Raise Error: ValueError: Wrong parameter type, float('NaN').
+
+    >>> try:
+    ...     print(add_integer(float('NaN')))
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [ValueError] cannot convert float NaN to integer
+
+	--------------------------------------------------
+	- Raise Error: OverflowError: Wrong parameter type, floar('inf').
+
+    >>> try:
+    ...     print(add_integer(float('inf')))
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [OverflowError] cannot convert float infinity to integer
+
