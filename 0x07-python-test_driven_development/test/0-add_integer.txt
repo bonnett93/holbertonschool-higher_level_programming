@@ -1,0 +1,108 @@
+Doctest: 0-add_integer.py module
+======================
+
+
+Using ''add_integer''
+**********************
+
+This is a Doctest for the add_integer function in 0-add_integer.py module.
+
+- First:
+
+	*******************
+	# import ''add_integer'':
+	*******************
+	--------------------------------------------------
+    - # import ''add_integer'' function from the ''0-add_integer.py'' module:
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+	--------------------------------------------------
+
+- Now use it:
+
+	*******************
+	# Correct use:
+	*******************
+
+	--------------------------------------------------
+	- Correct use: Pass two arguments int.
+
+	>>> print(add_integer(5, 20))
+	25
+
+	--------------------------------------------------
+	- Correct use: Pass one argument int.
+
+    >>> print(add_integer(5))
+    103
+
+	--------------------------------------------------
+	- Correct use: Pass two arguments float.
+
+	>>> print(add_integer(5.5, 20.5))
+	25
+
+	--------------------------------------------------
+	- Correct use: Pass one argument float.
+
+	>>> print(add_integer(5.5))
+	103
+
+	--------------------------------------------------
+	- Correct use: Pass two arguments mixed.
+
+	>>> print(add_integer(5.5, 20))
+	25
+
+	>>> print(add_integer(20, 5.5))
+	25
+
+	--------------------------------------------------
+	- Correct use: Pass two arguments, 'a' is int negative.
+
+	>>> print(add_integer(-5, 20))
+	15
+
+	- Correct use: Pass two arguments, 'b' is float negative.
+	>>> print(add_integer(20, -5.5))
+	15
+
+	--------------------------------------------------
+
+	*******************
+	# Wrong use and Raise Errors:
+	*******************
+
+	--------------------------------------------------
+    - Wrong use: Pass no arguments.
+
+    >>> print(add_integer())
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
+	--------------------------------------------------
+	- Wrong use: Pass three arguments.
+
+	>>> print(add_integer(1, 5, 4))
+	Traceback (most recent call last):
+        ...
+	TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+	--------------------------------------------------
+	- Raise Error: TypeError: Wrong 'a' parameter type.
+
+    >>> try:
+    ...     print(add_integer("One"))
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] a must be an integer
+
+	--------------------------------------------------
+	- Raise Error: TypeError: Wrong parameter type, one argument.
+
+    >>> try:
+    ...     print(add_integer(1, "Two"))
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] b must be an integer
