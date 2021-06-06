@@ -3,6 +3,7 @@
 
 
 def matrix_divided(matrix, div):
+    '''divides all elements of a matrix and return new matrix'''
     new_matrix = []
     if type(div) not in [int, float]:
         raise TypeError("div must be a number")
