@@ -1,0 +1,70 @@
+Doctest: 5-text_indentation.py module
+======================
+
+
+Using ''text_indentation''
+**********************
+
+This is a Doctest for the text_indentation function in 5-text_indentation.py module.
+
+- First:
+
+	*******************
+	# import ''text_indentation'':
+	*******************
+	--------------------------------------------------
+    - # import ''text_indentation'' function from the ''5-text_indentation.py'' module:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+	--------------------------------------------------
+
+- Now use it:
+
+	*******************
+	# Correct use:
+	*******************
+
+	--------------------------------------------------
+	- Correct use: Text.
+
+    >>> text_indentation("Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+    ... Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
+    ... Non autem hoc:")
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Quonam modo?
+    Utrum igitur tibi litteram videor an totas paginas commovere?
+    Non autem hoc:
+
+	--------------------------------------------------
+
+	*******************
+	# Wrong use and Raise Errors:
+	*******************
+
+	--------------------------------------------------
+    - Wrong use: Pass no arguments.	
+
+    >>> text_indentation()
+    Traceback (most recent call last):
+        ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+   	--------------------------------------------------
+    - Wrong use: Pass two arguments.	
+
+    >>> text_indentation("HELLO", "HOW ARE YOU?")
+    Traceback (most recent call last):
+        ...
+    TypeError: text_indentation() takes 1 positional argument but 2 were given
+
+	--------------------------------------------------
+	- Raise Error: TypeError: Wrong type text
+
+    >>> try:
+    ...     text_indentation(12345)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] text must be a string
+
+	--------------------------------------------------
+
