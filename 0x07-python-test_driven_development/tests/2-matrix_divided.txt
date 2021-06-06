@@ -145,3 +145,16 @@ This is a Doctest for the matrix_divided function in 2-matrix_divided.py module.
     ... except Exception as e:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [ZeroDivisionError] division by zero
+
+	--------------------------------------------------
+	- Raise Error: TypeError: Wrong matrix row size.
+
+    >>>	matrix = [
+    ...     [3, 2.1, -3.3],
+    ...     [4.4, -5]
+    ... ]
+    >>> try:
+    ...     print(matrix_divided(matrix, 3))
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] Each row of the matrix must have the same size
