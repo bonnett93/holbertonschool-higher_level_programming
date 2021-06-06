@@ -1,0 +1,147 @@
+Doctest: 2-matrix_divided.py module
+======================
+
+
+Using ''matrix_divided''
+**********************
+
+This is a Doctest for the matrix_divided function in 2-matrix_divided.py module.
+
+- First:
+
+	*******************
+	# import ''matrix_divided'':
+	*******************
+	--------------------------------------------------
+    - # import ''matrix_divided'' function from the ''2-matrix_divided.py'' module:
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+	--------------------------------------------------
+
+- Now use it:
+
+	*******************
+	# Correct use:
+	*******************
+
+	--------------------------------------------------
+	- Correct use: Pass matrix, return new matrix, don´t change original.
+
+    >>> matrix = [
+    ...     [1, 2, 3],
+    ...     [4, 5, 6]
+    ... ]
+    >>> print(matrix_divided(matrix, 3))
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+    >>> print(matrix)
+    [[1, 2, 3], [4, 5, 6]]
+
+	--------------------------------------------------
+	- Correct use: Pass matrix, floats.
+
+    >>> matrix = [
+    ...     [1.5, 2.1, 3.3],
+    ...     [4.4, 5.2, 6.4]
+    ... ]
+    >>> print(matrix_divided(matrix, 3))
+    [[0.5, 0.7, 1.1], [1.47, 1.73, 2.13]]
+
+	--------------------------------------------------
+	- Correct use: Pass matrix, integers, floats and negatives mixed.
+
+    >>> matrix = [
+    ...     [-1.5, 2.1, -3.3],
+    ...     [4.4, -5, 6]
+    ... ]
+    >>> print(matrix_divided(matrix, 3))
+    [[-0.5, 0.7, -1.1], [1.47, -1.67, 2.0]]
+
+	--------------------------------------------------
+	- Correct use: Pass matrix, one row.
+
+    >>> matrix = [
+    ...     [-1.5, 2.1, -3.3],
+    ... ]
+    >>> print(matrix_divided(matrix, 3))
+    [[-0.5, 0.7, -1.1]]
+
+	--------------------------------------------------
+	--------------------------------------------------
+
+	*******************
+	# Wrong use and Raise Errors:
+	*******************
+
+	--------------------------------------------------
+    - Wrong use: Pass no arguments.	
+
+    >>> matrix = [
+    ...     [-1.5, 2.1, -3.3],
+    ... ]
+    >>> print(matrix_divided())
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
+	--------------------------------------------------
+    - Wrong use: Pass one argument matrix.
+
+    >>> print(matrix_divided(matrix))
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+	--------------------------------------------------
+    - Wrong use: Pass one argument div.
+
+    >>> print(matrix_divided(None, 3))
+    Traceback (most recent call last):
+        ...
+    TypeError: 'NoneType' object is not subscriptable
+
+	--------------------------------------------------
+	- Wrong use: Pass three arguments.
+
+    >>> print(matrix_divided(matrix, 5, 4))
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_divided() takes 2 positional arguments but 3 were given
+
+	--------------------------------------------------
+	- Raise Error: TypeError: Wrong parameter type in matrix.
+
+    >>>	matrix = [
+    ...     ["One", 2.1, -3.3],
+    ...     [4.4, -5, 3]
+    ... ]
+    >>> try:
+    ...     print(matrix_divided(matrix, 5))
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] matrix must be a matrix (list of lists) of integers/floats
+
+	--------------------------------------------------
+	- Raise Error: TypeError: Wrong parameter type div.
+
+    >>>	matrix = [
+    ...     [3, 2.1, -3.3],
+    ...     [4.4, -5, 3]
+    ... ]
+    >>> try:
+    ...     print(matrix_divided(matrix, "five"))
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] div must be a number
+
+	--------------------------------------------------
+	- Raise Error: ValueError: Wrong parameter value div.
+
+    >>>	matrix = [
+    ...     [3, 2.1, -3.3],
+    ...     [4.4, -5, 3]
+    ... ]
+    >>> try:
+    ...     print(matrix_divided(matrix, 0))
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [ZeroDivisionError] division by zero
