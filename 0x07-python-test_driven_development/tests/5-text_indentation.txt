@@ -36,6 +36,7 @@ This is a Doctest for the text_indentation function in 5-text_indentation.py mod
     Non autem hoc:
 
 	--------------------------------------------------
+	--------------------------------------------------
 
 	*******************
 	# Wrong use and Raise Errors:
@@ -56,6 +57,15 @@ This is a Doctest for the text_indentation function in 5-text_indentation.py mod
     Traceback (most recent call last):
         ...
     TypeError: text_indentation() takes 1 positional argument but 2 were given
+
+   	--------------------------------------------------
+	- Wrong use: Text with blank line.
+
+    >>> text_indentation("Lorem ipsum dolor sit amet, 
+    ... consectetur adipiscing elit."
+    Traceback (most recent call last):
+        ...
+    SyntaxError: EOL while scanning string literal
 
 	--------------------------------------------------
 	- Raise Error: TypeError: Wrong type text
