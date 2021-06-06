@@ -31,11 +31,22 @@ This is a Doctest for the text_indentation function in 5-text_indentation.py mod
     ... Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
     ... Non autem hoc:")
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <BLANKLINE>
     Quonam modo?
+    <BLANKLINE>
     Utrum igitur tibi litteram videor an totas paginas commovere?
+    <BLANKLINE>
     Non autem hoc:
 
 	--------------------------------------------------
+	- Correct use: Text with \n.
+    
+    >>> text_indentation("Hello.\n How are You?")
+    Hello.
+    <BLANKLINE>
+    <BLANKLINE>
+     How are You?
+
 	--------------------------------------------------
 
 	*******************
