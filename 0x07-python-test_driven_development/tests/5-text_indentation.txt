@@ -44,10 +44,19 @@ This is a Doctest for the text_indentation function in 5-text_indentation.py mod
     >>> text_indentation("Hello.\n How are You?")
     Hello.
     <BLANKLINE>
-    <BLANKLINE>
-     How are You?
+    How are You?
 
 	--------------------------------------------------
+	- Correct use: Text with space.
+
+    >>> text_indentation("Holberton. School? How are you:   John")
+    Holberton.
+    <BLANKLINE>
+    School?
+    <BLANKLINE>
+    How are you:
+    <BLANKLINE>
+    John
 
 	*******************
 	# Wrong use and Raise Errors:
