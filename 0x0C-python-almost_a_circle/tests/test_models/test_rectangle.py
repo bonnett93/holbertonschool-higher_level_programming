@@ -3,6 +3,7 @@
 import unittest
 
 from models.rectangle import Rectangle
+from models.base import Base
 
 
 class TestRectangle(unittest.TestCase):
@@ -56,7 +57,7 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             r = Rectangle(10, 2, 3, -1)
 
-    def testarea(self):
+    def test_area(self):
         '''Check instance method area()'''
         r1 = Rectangle(3, 2)
         self.assertEqual(r1.area(), 6)
@@ -69,3 +70,39 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             r3.area(8)
+
+    def test_display(self):
+        '''Check instance method display()'''
+        # with No arguments
+        r1 = Rectangle(4, 3)
+        self.assertEqual(r1.display(), None)
+
+        with self.assertRaises(TypeError):
+            r1.display(4)
+
+    def test_str(self):
+        '''Check instance method str'''
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        self.assertEqual(str(r1), "[Rectangle] (12) 2/1 - 4/6")
+
+    def test_update(self):
+        '''Check instance method update'''
+        r1 = Rectangle(10, 10, 10, 10)
+        # No arguments
+        r1.update()
+        self.assertEqual(str(r1), "[Rectangle] (7) 10/10 - 10/10")
+        # one argument
+        r1.update(89)
+        self.assertEqual(str(r1), "[Rectangle] (89) 10/10 - 10/10")
+        # two arguments
+        r1.update(89, 2)
+        self.assertEqual(str(r1), "[Rectangle] (89) 10/10 - 2/10")
+        # three arguments
+        r1.update(89, 2, 3)
+        self.assertEqual(str(r1), "[Rectangle] (89) 10/10 - 2/3")
+        # four arguments
+        r1.update(89, 2, 3, 4)
+        self.assertEqual(str(r1), "[Rectangle] (89) 4/10 - 2/3")
+        # five arguments
+        r1.update(89, 2, 3, 4, 5)
+        self.assertEqual(str(r1), "[Rectangle] (89) 4/5 - 2/3")
