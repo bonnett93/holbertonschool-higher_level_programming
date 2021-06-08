@@ -37,6 +37,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r2.id, 5)
 
     def testRectangleErrors(self):
+        '''Check wrong instance creation and attributes'''
         # No arguments
         with self.assertRaises(TypeError):
             r = Rectangle()
@@ -54,3 +55,17 @@ class TestRectangle(unittest.TestCase):
         # Wrong value argument y
         with self.assertRaises(ValueError):
             r = Rectangle(10, 2, 3, -1)
+
+    def testarea(self):
+        '''Check instance method area()'''
+        r1 = Rectangle(3, 2)
+        self.assertEqual(r1.area(), 6)
+
+        r2 = Rectangle(2, 10)
+        self.assertEqual(r2.area(), 20)
+
+        r3 = Rectangle(8, 7, 0, 0, 12)
+        self.assertEqual(r3.area(), 56)
+
+        with self.assertRaises(TypeError):
+            r3.area(8)
