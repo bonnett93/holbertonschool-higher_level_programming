@@ -81,11 +81,12 @@ class Rectangle(Base):
             print((' ' * self.__x) + ('#' * self.__width))
 
     def __str__(self):
+        '''change the str method'''
         msg1 = "[Rectangle] ({}) {}/{}".format(self.id, self.__x, self.__y)
         msg2 = " - {}/{}".format(self.__width, self.__height)
         return msg1 + msg2
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         '''assigns an argument to each attribute'''
         len_a = len(args)
         if len_a > 0:
@@ -98,3 +99,19 @@ class Rectangle(Base):
                         self.__x = args[3]
                         if len_a > 4:
                             self.__y = args[4]
+        else:
+            for key, value in kwargs.items():
+                if key == 'id':
+                    self.id = value
+                if key == 'width':
+                    self.__setter_validator("width", value)
+                    self.__width = value
+                if key == 'height':
+                    self.__setter_validator("height", value)
+                    self.__height = value
+                if key == 'x':
+                    self.__setter_validator("x", value)
+                    self.__x = value
+                if key == 'y':
+                    self.__setter_validator("y", value)
+                    self.__y = value

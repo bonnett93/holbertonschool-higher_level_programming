@@ -85,7 +85,7 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(4, 6, 2, 1, 12)
         self.assertEqual(str(r1), "[Rectangle] (12) 2/1 - 4/6")
 
-    def test_update(self):
+    def test_update_args(self):
         '''Check instance method update'''
         r1 = Rectangle(10, 10, 10, 10)
         # No arguments
@@ -106,3 +106,31 @@ class TestRectangle(unittest.TestCase):
         # five arguments
         r1.update(89, 2, 3, 4, 5)
         self.assertEqual(str(r1), "[Rectangle] (89) 4/5 - 2/3")
+
+    def test_update_kwargs(self):
+        '''Check instance method update'''
+        r1 = Rectangle(10, 10, 10, 10, 10)
+        # No arguments
+        r1.update()
+        self.assertEqual(str(r1), "[Rectangle] (10) 10/10 - 10/10")
+        # if args existx, ignore kwargs
+        r1.update(90, height=1)
+        self.assertEqual(str(r1), "[Rectangle] (90) 10/10 - 10/10")
+        # one argument
+        r1.update(height=1)
+        self.assertEqual(str(r1), "[Rectangle] (90) 10/10 - 10/1")
+        # two arguments
+        r1.update(width=1, x=2)
+        self.assertEqual(str(r1), "[Rectangle] (90) 2/10 - 1/1")
+        # more arguments
+        r1.update(y=1, width=2, x=3, id=89)
+        self.assertEqual(str(r1), "[Rectangle] (89) 3/1 - 2/1")
+        # and more
+        r1.update(x=1, height=2, y=3, width=4)
+        self.assertEqual(str(r1), "[Rectangle] (89) 1/3 - 4/2")
+        # Type Error
+        with self.assertRaises(TypeError):
+            r1.update(x="12")
+        # value error
+        with self.assertRaises(ValueError):
+            r1.update(width=-12)
