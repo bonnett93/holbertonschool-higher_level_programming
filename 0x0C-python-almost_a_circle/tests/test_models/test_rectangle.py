@@ -9,12 +9,16 @@ from models.base import Base
 class TestRectangle(unittest.TestCase):
     '''Class to test the Rectangle class'''
 
+    def setUp(self):
+        '''Setup for instances = 0'''
+        Base._Base__nb_objects = 0
+
     def testRectangleInstance(self):
         '''Check instance creation and attributes'''
         # New instance, just two arguments
         r1 = Rectangle(5, 5)
         # Check id
-        self.assertEqual(r1.id, 3)
+        self.assertEqual(r1.id, 1)
         # Check height
         self.assertEqual(r1.height, 5)
         # Check width
@@ -90,7 +94,7 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(10, 10, 10, 10)
         # No arguments
         r1.update()
-        self.assertEqual(str(r1), "[Rectangle] (7) 10/10 - 10/10")
+        self.assertEqual(str(r1), "[Rectangle] (1) 10/10 - 10/10")
         # one argument
         r1.update(89)
         self.assertEqual(str(r1), "[Rectangle] (89) 10/10 - 10/10")
