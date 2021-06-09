@@ -115,3 +115,14 @@ class Rectangle(Base):
                 if key == 'y':
                     self.__setter_validator("y", value)
                     self.__y = value
+
+    def to_dictionary(self):
+        '''returns the dictionary representation of a Rectangle'''
+        diccionary = {
+            "id": self.id,
+            "width": self.__width,
+            "height": self.__height,
+            "x": self.__x,
+            "y": self.__y
+            }
+        return diccionary
