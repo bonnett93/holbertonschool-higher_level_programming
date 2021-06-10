@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 '''Module: base.py'''
 import json
+import os
 
 
 class Base:
@@ -53,3 +54,18 @@ class Base:
             dummy = cls(1, 0, 0, 1)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        '''returns a list of instances'''
+        filename = cls.__name__ + ".json"
+        isfile = os.path.exists(filename)
+        if isfile is True:
+            list_obj = []
+            with open(filename, "r") as f:
+                dict_obj = json.load(f)
+            for obj in dict_obj:
+                list_obj.append(cls.create(**obj))
+            return list_obj
+        else:
+            return []
