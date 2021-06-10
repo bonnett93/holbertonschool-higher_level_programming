@@ -33,8 +33,6 @@ class Base:
         if list_objs is not None:
             for obj in list_objs:
                 new_list.append(obj.to_dictionary())
-        else:
-            new_list = "[]"
         with open(filename, "w") as f:
             # f.write(cls.to_json_string(new_list))
             json.dump(new_list, f)
