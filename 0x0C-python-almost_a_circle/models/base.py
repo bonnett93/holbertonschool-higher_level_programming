@@ -63,7 +63,7 @@ class Base:
         if isfile is True:
             list_obj = []
             with open(filename, "r") as f:
-                dict_obj = json.load(f)
+                dict_obj = cls.from_json_string(f.read())
             for obj in dict_obj:
                 list_obj.append(cls.create(**obj))
             return list_obj
