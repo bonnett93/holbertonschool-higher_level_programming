@@ -28,7 +28,8 @@ if __name__ == '__main__':
 
     # Make a query
     sql = """SELECT * FROM states
-            WHERE states.name='{}'""".format(name)
+            WHERE states.name='{}'
+            ORDER BY states.id""".format(name)
 
     cursor.execute(sql)
 
