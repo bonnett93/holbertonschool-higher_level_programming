@@ -21,12 +21,11 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engie)
     session = Session()
 
-    sql = session.query(State).filter_by(id=1)
+    sql = session.query(State)
+    result = sql.first()
 
-    if sql:
-        result = sql.all()
-        for each in result:
-            print("{}: {}".format(each.id, each.name))
+    if result:
+        print("{}: {}".format(result.id, result.name))
     else:
         print("Nothing")
 
