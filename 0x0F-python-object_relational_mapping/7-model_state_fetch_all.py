@@ -18,7 +18,6 @@ if __name__ == '__main__':
     engie = create_engine('mysql+mysqldb://{}:{}@localhost:{}/{}'.
                           format(uname, upass, port, db), pool_pre_ping=True)
 
-
     Session = sessionmaker(bind=engie)
     session = Session()
 
@@ -26,6 +25,6 @@ if __name__ == '__main__':
     result = sql.all()
 
     for each in result:
-        print("{}: {}".format(each.id , each.name))
+        print("{}: {}".format(each.id, each.name))
 
     session.close()
