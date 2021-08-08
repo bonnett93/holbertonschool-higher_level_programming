@@ -27,7 +27,7 @@ if __name__ == '__main__':
 
     # Make a query
     sql = """SELECT * FROM states
-            WHERE states.name Like 'N%'
+            WHERE BINARY states.name Like 'N%'
             ORDER BY states.id
             """
 

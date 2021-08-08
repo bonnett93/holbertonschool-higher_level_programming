@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
     # Make a query
     sql = """SELECT * FROM states
-            WHERE states.name='{}'
+            WHERE BINARY states.name='{}'
             COLLATE latin1_general_cs
             ORDER BY states.id""".format(name)
 
