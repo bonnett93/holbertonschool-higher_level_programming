@@ -9,6 +9,7 @@ if __name__ == "__main__":
     from model_state import Base, State
     from model_city import City
 
+
     uname = sys.argv[1]
     upass = sys.argv[2]
     db = sys.argv[3]
