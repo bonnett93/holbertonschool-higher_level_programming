@@ -1,4 +1,4 @@
-#!/usr/bin/puthon3
+#!/usr/bin/python3
 """Module: 13-model_state_delete
     deletes all State objects with a name containing the letter 'a'
     from the database hbtn_0e_6_usa"""
