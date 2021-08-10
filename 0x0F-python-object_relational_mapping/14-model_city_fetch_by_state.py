@@ -17,8 +17,8 @@ if __name__ == "__main__":
 
     # dialect+driver://username:password@host:port/database
     engine = create_engine('mysql+mysqldb://{}:{}@{}:{}/{}'.
-                          format(uname, upass, host, port, db),
-                          pool_pre_ping=True)
+                           format(uname, upass, host, port, db),
+                           pool_pre_ping=True)
 
     Session = sessionmaker(bind=engine)
     session = Session()
@@ -28,4 +28,3 @@ if __name__ == "__main__":
 
     for each in sql:
         print("{}: ({}) {}".format(each[0], each[1], each[2]))
-
