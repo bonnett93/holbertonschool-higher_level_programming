@@ -21,14 +21,11 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    sql = session.query(State).filter(State.name.like("%a%")).delete()
+    sql = session.query(State).filter(State.id.like("%a%"))
+    result = sql.all()
+    for each in result:
+        session.delete(each)
 
-    """ # Other way to delete
-        sql = session.query(State).filter(State.id.like("%a%"))
-        result = sql.all()
-        for each in result:
-            session.delete(each)
-    """
     session.commit()
 
     session.close()
