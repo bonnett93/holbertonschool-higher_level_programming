@@ -6,6 +6,7 @@
 from sqlalchemy import Column, String, Integer, ForeignKey
 from model_state import Base, State
 
+
 class City(Base):
     """Class that define the table 'cities' """
     __tablename__ = "cities"
