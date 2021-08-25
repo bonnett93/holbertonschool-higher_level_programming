@@ -12,7 +12,7 @@ if __name__ == '__main__':
     headers = {'Authorization': 'token ' + token}
     url = 'https://api.github.com/user'
 
-    req = requests.post(url, auth=(username, token))
+    req = requests.get(url, auth=(username, token))
     try:
         print(req.json()['id'])
     except:
