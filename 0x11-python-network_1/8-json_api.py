@@ -11,7 +11,7 @@ if __name__ == '__main__':
         print('No result')
     else:
         q = sys.argv[1]
-        payload = {'email': sys.argv[1]}
+        payload = {'q': q}
         url = 'http://0.0.0.0:5000/search_user'
         req = requests.post(url, data=payload)
         try:
