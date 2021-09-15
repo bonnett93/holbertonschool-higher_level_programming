@@ -1,11 +1,19 @@
 #!/usr/bin/node
 
 const request = require('request');
-const url = 'https://swapi-api.hbtn.io/api/people/18';
+const url = process.argv[2];
+let present = 0;
 
 request(url, (error, response) => {
   if (error) {
     console.log(error);
   }
-  console.log(JSON.parse(response.body).films.length);
+  const results = JSON.parse(response.body).results;
+  results.forEach(element => {
+    const characters = element.characters;
+    if (characters.includes('https://swapi-api.hbtn.io/api/people/18/')) {
+      present += 1;
+    }
+  });
+  console.log(present);
 });
