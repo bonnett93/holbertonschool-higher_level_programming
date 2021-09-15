@@ -10,9 +10,10 @@ request(url, (error, response) => {
   }
   const results = JSON.parse(response.body).results;
   results.forEach(element => {
-    const characters = element.characters;
-    if (characters.includes('https://swapi-api.hbtn.io/api/people/18/')) {
-      present += 1;
+    for (const character of element.characters) {
+      if (character.includes('18')) {
+        present += 1;
+      }
     }
   });
   console.log(present);
